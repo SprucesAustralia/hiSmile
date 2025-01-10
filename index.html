@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Online Checklist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      color: #333333;
+    }
+
+    /* Header: pink background */
+    header {
+      background-color: #ff0080; /* You can adjust if needed */
+      color: #ffffff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    /* Main container */
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      margin: 20px 0 10px 0;
+      font-size: 20px;
+      color: #ff0080; /* Pink heading text for emphasis */
+    }
+
+    h3 {
+      margin: 15px 0 8px 0;
+      font-size: 18px;
+      color: #666666;
+    }
+
+    .task-section {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 20px;
+    }
+
+    .task-section:last-child {
+      border-bottom: none;
+    }
+
+    /* Each task row */
+    .task-item {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .task-item label {
+      margin-left: 8px;
+      flex: 1;
+    }
+
+    .task-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 5px;
+      margin-left: 28px; /* so it lines up under the label text */
+    }
+
+    .task-actions input[type="file"] {
+      margin-right: 10px;
+      margin-bottom: 5px;
+    }
+
+    .task-comments {
+      width: 100%;
+      max-width: 300px;
+      margin-top: 5px;
+      padding: 5px;
+      border: 1px solid #cccccc;
+      border-radius: 3px;
+      font-size: 14px;
+    }
+
+    /* Buttons */
+    .submit-button {
+      background-color: #ff0080;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .submit-button:hover {
+      background-color: #e60074; /* Slightly darker on hover */
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      color: #666666;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 20px;
+      }
+
+      .task-actions {
+        margin-left: 25px; /* slightly less indentation for mobile */
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Online Checklist</h1>
+  <p>Keep track of cleaning tasks quickly and easily</p>
+</header>
+
+<div class="container">
+  <form action="#" method="post" enctype="multipart/form-data">
+    <!-- OFFICE DOWNSTAIRS -->
+    <div class="task-section">
+      <h2>Office Downstairs</h2>
+
+      <h3>Each Visit</h3>
+      <!-- 1 -->
+      <div class="task-item">
+        <input type="checkbox" id="downstairs_disinfect_highrisk" name="downstairs_disinfect_highrisk" />
+        <label for="downstairs_disinfect_highrisk">
+          Disinfect High-risk areas: door handles and light switches
+        </label>
+        <div class="task-actions">
+          <input type="file" name="downstairs_disinfect_highrisk_photo" accept="image/*" />
+          <textarea name="downstairs_disinfect_highrisk_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+
+      <h3>Monthly</h3>
+      <!-- 2 -->
+      <div class="task-item">
+        <input type="checkbox" id="downstairs_dust_skirting" name="downstairs_dust_skirting" />
+        <label for="downstairs_dust_skirting">Dust skirting boards</label>
+        <div class="task-actions">
+          <input type="file" name="downstairs_dust_skirting_photo" accept="image/*" />
+          <textarea name="downstairs_dust_skirting_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- OFFICE UPSTAIRS -->
+    <div class="task-section">
+      <h2>Office Upstairs</h2>
+
+      <h3>Each Visit</h3>
+      <!-- 3 -->
+      <div class="task-item">
+        <input type="checkbox" id="upstairs_sweep_litter" name="upstairs_sweep_litter" />
+        <label for="upstairs_sweep_litter">Sweep and remove litter from entrance area</label>
+        <div class="task-actions">
+          <input type="file" name="upstairs_sweep_litter_photo" accept="image/*" />
+          <textarea name="upstairs_sweep_litter_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 4 -->
+      <div class="task-item">
+        <input type="checkbox" id="upstairs_glass_entry" name="upstairs_glass_entry" />
+        <label for="upstairs_glass_entry">Glass entry doors</label>
+        <div class="task-actions">
+          <input type="file" name="upstairs_glass_entry_photo" accept="image/*" />
+          <textarea name="upstairs_glass_entry_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 5 -->
+      <div class="task-item">
+        <input type="checkbox" id="upstairs_full_vacuum" name="upstairs_full_vacuum" />
+        <label for="upstairs_full_vacuum">Full Vacuum corridors and areas</label>
+        <div class="task-actions">
+          <input type="file" name="upstairs_full_vacuum_photo" accept="image/*" />
+          <textarea name="upstairs_full_vacuum_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 6 -->
+      <div class="task-item">
+        <input type="checkbox" id="upstairs_full_mop" name="upstairs_full_mop" />
+        <label for="upstairs_full_mop">Full mop corridors and areas</label>
+        <div class="task-actions">
+          <input type="file" name="upstairs_full_mop_photo" accept="image/*" />
+          <textarea name="upstairs_full_mop_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 7 -->
+      <div class="task-item">
+        <input type="checkbox" id="upstairs_collect_rubbish" name="upstairs_collect_rubbish" />
+        <label for="upstairs_collect_rubbish">
+          Collect and remove rubbish, replace bin liners
+        </label>
+        <div class="task-actions">
+          <input type="file" name="upstairs_collect_rubbish_photo" accept="image/*" />
+          <textarea name="upstairs_collect_rubbish_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 8 -->
+      <div class="task-item">
+        <input type="checkbox" id="upstairs_internal_glass" name="upstairs_internal_glass" />
+        <label for="upstairs_internal_glass">Internal glass - clean</label>
+        <div class="task-actions">
+          <input type="file" name="upstairs_internal_glass_photo" accept="image/*" />
+          <textarea name="upstairs_internal_glass_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 9 -->
+      <div class="task-item">
+        <input type="checkbox" id="upstairs_shelves" name="upstairs_shelves" />
+        <label for="upstairs_shelves">Shelves and surfaces to be dusted and disinfected</label>
+        <div class="task-actions">
+          <input type="file" name="upstairs_shelves_photo" accept="image/*" />
+          <textarea name="upstairs_shelves_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 10 -->
+      <div class="task-item">
+        <input type="checkbox" id="upstairs_wipe_screens" name="upstairs_wipe_screens" />
+        <label for="upstairs_wipe_screens">Wipe down fingerprints on screens (TV)</label>
+        <div class="task-actions">
+          <input type="file" name="upstairs_wipe_screens_photo" accept="image/*" />
+          <textarea name="upstairs_wipe_screens_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 11 -->
+      <div class="task-item">
+        <input type="checkbox" id="upstairs_dust_chairs" name="upstairs_dust_chairs" />
+        <label for="upstairs_dust_chairs">Dust all chairs</label>
+        <div class="task-actions">
+          <input type="file" name="upstairs_dust_chairs_photo" accept="image/*" />
+          <textarea name="upstairs_dust_chairs_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+
+      <h3>Monthly</h3>
+      <!-- 12 -->
+      <div class="task-item">
+        <input type="checkbox" id="upstairs_spotclean_walls" name="upstairs_spotclean_walls" />
+        <label for="upstairs_spotclean_walls">Spotclean walls & doors</label>
+        <div class="task-actions">
+          <input type="file" name="upstairs_spotclean_walls_photo" accept="image/*" />
+          <textarea name="upstairs_spotclean_walls_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 13 -->
+      <div class="task-item">
+        <input type="checkbox" id="upstairs_deep_vacuum" name="upstairs_deep_vacuum" />
+        <label for="upstairs_deep_vacuum">
+          Deep Vacuum: corners, underneath furniture
+        </label>
+        <div class="task-actions">
+          <input type="file" name="upstairs_deep_vacuum_photo" accept="image/*" />
+          <textarea name="upstairs_deep_vacuum_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 14 -->
+      <div class="task-item">
+        <input type="checkbox" id="upstairs_deep_mop" name="upstairs_deep_mop" />
+        <label for="upstairs_deep_mop">
+          Deep mopping: corners, underneath furniture
+        </label>
+        <div class="task-actions">
+          <input type="file" name="upstairs_deep_mop_photo" accept="image/*" />
+          <textarea name="upstairs_deep_mop_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- GYM -->
+    <div class="task-section">
+      <h2>Gym</h2>
+      <h3>Each Visit</h3>
+      <!-- 15 -->
+      <div class="task-item">
+        <input type="checkbox" id="gym_restock_supplies" name="gym_restock_supplies" />
+        <label for="gym_restock_supplies">
+          Restock Supplies (hand sanitizer, paper towels/wipes)
+        </label>
+        <div class="task-actions">
+          <input type="file" name="gym_restock_supplies_photo" accept="image/*" />
+          <textarea name="gym_restock_supplies_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 16 -->
+      <div class="task-item">
+        <input type="checkbox" id="gym_clean_equipment" name="gym_clean_equipment" />
+        <label for="gym_clean_equipment">
+          Clean Gym Equipment (wipe/disinfect machines, free weights, benches)
+        </label>
+        <div class="task-actions">
+          <input type="file" name="gym_clean_equipment_photo" accept="image/*" />
+          <textarea name="gym_clean_equipment_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 17 -->
+      <div class="task-item">
+        <input type="checkbox" id="gym_disinfect_high_touch" name="gym_disinfect_high_touch" />
+        <label for="gym_disinfect_high_touch">
+          Disinfect High-touch Areas (door handles, locker handles, light switches)
+        </label>
+        <div class="task-actions">
+          <input type="file" name="gym_disinfect_high_touch_photo" accept="image/*" />
+          <textarea name="gym_disinfect_high_touch_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 18 -->
+      <div class="task-item">
+        <input type="checkbox" id="gym_wipe_mirrors" name="gym_wipe_mirrors" />
+        <label for="gym_wipe_mirrors">Wipe Mirrors (remove smudges)</label>
+        <div class="task-actions">
+          <input type="file" name="gym_wipe_mirrors_photo" accept="image/*" />
+          <textarea name="gym_wipe_mirrors_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 19 -->
+      <div class="task-item">
+        <input type="checkbox" id="gym_empty_bins" name="gym_empty_bins" />
+        <label for="gym_empty_bins">Empty Trash Bins (replace liners if needed)</label>
+        <div class="task-actions">
+          <input type="file" name="gym_empty_bins_photo" accept="image/*" />
+          <textarea name="gym_empty_bins_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 20 -->
+      <div class="task-item">
+        <input type="checkbox" id="gym_mop_floors" name="gym_mop_floors" />
+        <label for="gym_mop_floors">Mop Floors (workout area and locker rooms)</label>
+        <div class="task-actions">
+          <input type="file" name="gym_mop_floors_photo" accept="image/*" />
+          <textarea name="gym_mop_floors_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 21 -->
+      <div class="task-item">
+        <input type="checkbox" id="gym_clean_changing" name="gym_clean_changing" />
+        <label for="gym_clean_changing">
+          Clean & Disinfect Changing Areas: wipe lockers, benches, surfaces
+        </label>
+        <div class="task-actions">
+          <input type="file" name="gym_clean_changing_photo" accept="image/*" />
+          <textarea name="gym_clean_changing_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- BATHROOMS -->
+    <div class="task-section">
+      <h2>Bathrooms</h2>
+
+      <h3>Each Visit</h3>
+      <!-- 22 -->
+      <div class="task-item">
+        <input type="checkbox" id="bathrooms_restock" name="bathrooms_restock" />
+        <label for="bathrooms_restock">
+          Restock Supplies (toilet paper, hand soap, paper towels)
+        </label>
+        <div class="task-actions">
+          <input type="file" name="bathrooms_restock_photo" accept="image/*" />
+          <textarea name="bathrooms_restock_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 23 -->
+      <div class="task-item">
+        <input type="checkbox" id="bathrooms_clean_toilets" name="bathrooms_clean_toilets" />
+        <label for="bathrooms_clean_toilets">
+          Clean Toilets: wipe & disinfect seat & flush handle, scrub bowl
+        </label>
+        <div class="task-actions">
+          <input type="file" name="bathrooms_clean_toilets_photo" accept="image/*" />
+          <textarea name="bathrooms_clean_toilets_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 24 -->
+      <div class="task-item">
+        <input type="checkbox" id="bathrooms_clean_sinks" name="bathrooms_clean_sinks" />
+        <label for="bathrooms_clean_sinks">Clean Sinks & Faucets</label>
+        <div class="task-actions">
+          <input type="file" name="bathrooms_clean_sinks_photo" accept="image/*" />
+          <textarea name="bathrooms_clean_sinks_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 25 -->
+      <div class="task-item">
+        <input type="checkbox" id="bathrooms_wipe_mirrors" name="bathrooms_wipe_mirrors" />
+        <label for="bathrooms_wipe_mirrors">Wipe Mirrors (remove smudges)</label>
+        <div class="task-actions">
+          <input type="file" name="bathrooms_wipe_mirrors_photo" accept="image/*" />
+          <textarea name="bathrooms_wipe_mirrors_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 26 -->
+      <div class="task-item">
+        <input type="checkbox" id="bathrooms_disinfect_high_touch" name="bathrooms_disinfect_high_touch" />
+        <label for="bathrooms_disinfect_high_touch">Disinfect door handles & light switches</label>
+        <div class="task-actions">
+          <input type="file" name="bathrooms_disinfect_high_touch_photo" accept="image/*" />
+          <textarea name="bathrooms_disinfect_high_touch_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 27 -->
+      <div class="task-item">
+        <input type="checkbox" id="bathrooms_empty_bins" name="bathrooms_empty_bins" />
+        <label for="bathrooms_empty_bins">Empty Trash Bins (replace liners if needed)</label>
+        <div class="task-actions">
+          <input type="file" name="bathrooms_empty_bins_photo" accept="image/*" />
+          <textarea name="bathrooms_empty_bins_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 28 -->
+      <div class="task-item">
+        <input type="checkbox" id="bathrooms_mop_floors" name="bathrooms_mop_floors" />
+        <label for="bathrooms_mop_floors">Mop Floors</label>
+        <div class="task-actions">
+          <input type="file" name="bathrooms_mop_floors_photo" accept="image/*" />
+          <textarea name="bathrooms_mop_floors_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+
+      <h3>Monthly</h3>
+      <!-- 29 -->
+      <div class="task-item">
+        <input type="checkbox" id="bathrooms_spotclean" name="bathrooms_spotclean" />
+        <label for="bathrooms_spotclean">Spotclean walls & doors</label>
+        <div class="task-actions">
+          <input type="file" name="bathrooms_spotclean_photo" accept="image/*" />
+          <textarea name="bathrooms_spotclean_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- KITCHENS -->
+    <div class="task-section">
+      <h2>Kitchens</h2>
+
+      <h3>Each Visit</h3>
+      <!-- 30 -->
+      <div class="task-item">
+        <input type="checkbox" id="kitchen_sweep_mop" name="kitchen_sweep_mop" />
+        <label for="kitchen_sweep_mop">Sweep and mop with disinfectant</label>
+        <div class="task-actions">
+          <input type="file" name="kitchen_sweep_mop_photo" accept="image/*" />
+          <textarea name="kitchen_sweep_mop_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 31 -->
+      <div class="task-item">
+        <input type="checkbox" id="kitchen_disinfect_highrisk" name="kitchen_disinfect_highrisk" />
+        <label for="kitchen_disinfect_highrisk">
+          Disinfect High-risk areas: door handles, light switches, consumables dispensers
+        </label>
+        <div class="task-actions">
+          <input type="file" name="kitchen_disinfect_highrisk_photo" accept="image/*" />
+          <textarea name="kitchen_disinfect_highrisk_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 32 -->
+      <div class="task-item">
+        <input type="checkbox" id="kitchen_disinfect_appliances" name="kitchen_disinfect_appliances" />
+        <label for="kitchen_disinfect_appliances">
+          Disinfect kitchen appliances (water bottle, microwave, fridge, etc.)
+        </label>
+        <div class="task-actions">
+          <input type="file" name="kitchen_disinfect_appliances_photo" accept="image/*" />
+          <textarea name="kitchen_disinfect_appliances_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 33 -->
+      <div class="task-item">
+        <input type="checkbox" id="kitchen_refill_consumables" name="kitchen_refill_consumables" />
+        <label for="kitchen_refill_consumables">
+          Refill hand towel, hand wash, and all consumables
+        </label>
+        <div class="task-actions">
+          <input type="file" name="kitchen_refill_consumables_photo" accept="image/*" />
+          <textarea name="kitchen_refill_consumables_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 34 -->
+      <div class="task-item">
+        <input type="checkbox" id="kitchen_clean_benches" name="kitchen_clean_benches" />
+        <label for="kitchen_clean_benches">
+          Clean all kitchen benches, tables, chairs, external cupboards
+        </label>
+        <div class="task-actions">
+          <input type="file" name="kitchen_clean_benches_photo" accept="image/*" />
+          <textarea name="kitchen_clean_benches_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 35 -->
+      <div class="task-item">
+        <input type="checkbox" id="kitchen_15min_dishes" name="kitchen_15min_dishes" />
+        <label for="kitchen_15min_dishes">Clean and wash up dishes (limited to 15 minutes)</label>
+        <div class="task-actions">
+          <input type="file" name="kitchen_15min_dishes_photo" accept="image/*" />
+          <textarea name="kitchen_15min_dishes_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 36 -->
+      <div class="task-item">
+        <input type="checkbox" id="kitchen_clean_fridge" name="kitchen_clean_fridge" />
+        <label for="kitchen_clean_fridge">
+          Clean inside & outside of fridge, microwaves
+        </label>
+        <div class="task-actions">
+          <input type="file" name="kitchen_clean_fridge_photo" accept="image/*" />
+          <textarea name="kitchen_clean_fridge_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 37 -->
+      <div class="task-item">
+        <input type="checkbox" id="kitchen_clean_backsplash" name="kitchen_clean_backsplash" />
+        <label for="kitchen_clean_backsplash">Clean kitchen backsplash (remove food marks)</label>
+        <div class="task-actions">
+          <input type="file" name="kitchen_clean_backsplash_photo" accept="image/*" />
+          <textarea name="kitchen_clean_backsplash_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 38 -->
+      <div class="task-item">
+        <input type="checkbox" id="kitchen_mop_area" name="kitchen_mop_area" />
+        <label for="kitchen_mop_area">Mop area, vacuum area</label>
+        <div class="task-actions">
+          <input type="file" name="kitchen_mop_area_photo" accept="image/*" />
+          <textarea name="kitchen_mop_area_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 39 -->
+      <div class="task-item">
+        <input type="checkbox" id="kitchen_clean_tops" name="kitchen_clean_tops" />
+        <label for="kitchen_clean_tops">
+          Clean and dust all tops, chairs, tables, work benches, doors, sinks
+        </label>
+        <div class="task-actions">
+          <input type="file" name="kitchen_clean_tops_photo" accept="image/*" />
+          <textarea name="kitchen_clean_tops_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 40 -->
+      <div class="task-item">
+        <input type="checkbox" id="kitchen_spot_clean_walls" name="kitchen_spot_clean_walls" />
+        <label for="kitchen_spot_clean_walls">
+          Clean / dust equipment on walls, spot clean walls
+        </label>
+        <div class="task-actions">
+          <input type="file" name="kitchen_spot_clean_walls_photo" accept="image/*" />
+          <textarea name="kitchen_spot_clean_walls_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 41 -->
+      <div class="task-item">
+        <input type="checkbox" id="kitchen_empty_bins" name="kitchen_empty_bins" />
+        <label for="kitchen_empty_bins">Empty rubbish bins</label>
+        <div class="task-actions">
+          <input type="file" name="kitchen_empty_bins_photo" accept="image/*" />
+          <textarea name="kitchen_empty_bins_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+
+      <h3>Monthly</h3>
+      <!-- 42 -->
+      <div class="task-item">
+        <input type="checkbox" id="kitchen_remove_cobwebs" name="kitchen_remove_cobwebs" />
+        <label for="kitchen_remove_cobwebs">Remove cobwebs</label>
+        <div class="task-actions">
+          <input type="file" name="kitchen_remove_cobwebs_photo" accept="image/*" />
+          <textarea name="kitchen_remove_cobwebs_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 43 -->
+      <div class="task-item">
+        <input type="checkbox" id="kitchen_dust_clean_drawers" name="kitchen_dust_clean_drawers" />
+        <label for="kitchen_dust_clean_drawers">Dust and clean inside drawers</label>
+        <div class="task-actions">
+          <input type="file" name="kitchen_dust_clean_drawers_photo" accept="image/*" />
+          <textarea name="kitchen_dust_clean_drawers_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+      <!-- 44 -->
+      <div class="task-item">
+        <input type="checkbox" id="kitchen_dust_clean_cabinets" name="kitchen_dust_clean_cabinets" />
+        <label for="kitchen_dust_clean_cabinets">
+          Dust and clean inside cabinets
+        </label>
+        <div class="task-actions">
+          <input type="file" name="kitchen_dust_clean_cabinets_photo" accept="image/*" />
+          <textarea name="kitchen_dust_clean_cabinets_comment" class="task-comments" placeholder="Comments"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin:30px 0;">
+      <!-- Single button to handle the entire form submission -->
+      <button type="submit" class="submit-button">Submit Checklist</button>
+    </div>
+  </form>
+</div>
+
+<footer>
+  <p>&copy; 2024 Pink & White Cleaning Checklist</p>
+</footer>
+
+</body>
+</html>
