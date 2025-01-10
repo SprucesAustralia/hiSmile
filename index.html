@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>Online Checklist</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     /* Basic Reset */
     * {
@@ -20,7 +21,7 @@
 
     /* Header: pink background */
     header {
-      background-color: #ff0080; /* You can adjust if needed */
+      background-color: #ff0080; /* Pink */
       color: #ffffff;
       text-align: center;
       padding: 20px;
@@ -138,13 +139,24 @@
 </header>
 
 <div class="container">
-  <form action="#" method="post" enctype="multipart/form-data">
-    <!-- OFFICE DOWNSTAIRS -->
+  <!-- 
+    The crucial change here is 'action="https://formspree.io/f/mqaaweqd"'
+    so the form data (including attachments) goes to Formspree.
+  -->
+  <form
+    action="https://formspree.io/f/mqaaweqd"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    <!-- Optional hidden field for a custom email subject line -->
+    <input type="hidden" name="_subject" value="Checklist Submission" />
+
+    <!-- 1) OFFICE DOWNSTAIRS -->
     <div class="task-section">
       <h2>Office Downstairs</h2>
 
       <h3>Each Visit</h3>
-      <!-- 1 -->
+      <!-- Disinfect High-risk areas -->
       <div class="task-item">
         <input type="checkbox" id="downstairs_disinfect_highrisk" name="downstairs_disinfect_highrisk" />
         <label for="downstairs_disinfect_highrisk">
@@ -157,7 +169,7 @@
       </div>
 
       <h3>Monthly</h3>
-      <!-- 2 -->
+      <!-- Dust skirting boards -->
       <div class="task-item">
         <input type="checkbox" id="downstairs_dust_skirting" name="downstairs_dust_skirting" />
         <label for="downstairs_dust_skirting">Dust skirting boards</label>
@@ -168,12 +180,12 @@
       </div>
     </div>
 
-    <!-- OFFICE UPSTAIRS -->
+    <!-- 2) OFFICE UPSTAIRS -->
     <div class="task-section">
       <h2>Office Upstairs</h2>
 
       <h3>Each Visit</h3>
-      <!-- 3 -->
+      <!-- Sweep and remove litter -->
       <div class="task-item">
         <input type="checkbox" id="upstairs_sweep_litter" name="upstairs_sweep_litter" />
         <label for="upstairs_sweep_litter">Sweep and remove litter from entrance area</label>
@@ -182,7 +194,7 @@
           <textarea name="upstairs_sweep_litter_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 4 -->
+      <!-- Glass entry doors -->
       <div class="task-item">
         <input type="checkbox" id="upstairs_glass_entry" name="upstairs_glass_entry" />
         <label for="upstairs_glass_entry">Glass entry doors</label>
@@ -191,7 +203,7 @@
           <textarea name="upstairs_glass_entry_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 5 -->
+      <!-- Full vacuum corridors and areas -->
       <div class="task-item">
         <input type="checkbox" id="upstairs_full_vacuum" name="upstairs_full_vacuum" />
         <label for="upstairs_full_vacuum">Full Vacuum corridors and areas</label>
@@ -200,7 +212,7 @@
           <textarea name="upstairs_full_vacuum_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 6 -->
+      <!-- Full mop corridors and areas -->
       <div class="task-item">
         <input type="checkbox" id="upstairs_full_mop" name="upstairs_full_mop" />
         <label for="upstairs_full_mop">Full mop corridors and areas</label>
@@ -209,7 +221,7 @@
           <textarea name="upstairs_full_mop_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 7 -->
+      <!-- Collect and remove rubbish -->
       <div class="task-item">
         <input type="checkbox" id="upstairs_collect_rubbish" name="upstairs_collect_rubbish" />
         <label for="upstairs_collect_rubbish">
@@ -220,7 +232,7 @@
           <textarea name="upstairs_collect_rubbish_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 8 -->
+      <!-- Internal glass clean -->
       <div class="task-item">
         <input type="checkbox" id="upstairs_internal_glass" name="upstairs_internal_glass" />
         <label for="upstairs_internal_glass">Internal glass - clean</label>
@@ -229,7 +241,7 @@
           <textarea name="upstairs_internal_glass_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 9 -->
+      <!-- Shelves and surfaces -->
       <div class="task-item">
         <input type="checkbox" id="upstairs_shelves" name="upstairs_shelves" />
         <label for="upstairs_shelves">Shelves and surfaces to be dusted and disinfected</label>
@@ -238,7 +250,7 @@
           <textarea name="upstairs_shelves_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 10 -->
+      <!-- Wipe down fingerprints on screens -->
       <div class="task-item">
         <input type="checkbox" id="upstairs_wipe_screens" name="upstairs_wipe_screens" />
         <label for="upstairs_wipe_screens">Wipe down fingerprints on screens (TV)</label>
@@ -247,7 +259,7 @@
           <textarea name="upstairs_wipe_screens_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 11 -->
+      <!-- Dust all chairs -->
       <div class="task-item">
         <input type="checkbox" id="upstairs_dust_chairs" name="upstairs_dust_chairs" />
         <label for="upstairs_dust_chairs">Dust all chairs</label>
@@ -258,7 +270,7 @@
       </div>
 
       <h3>Monthly</h3>
-      <!-- 12 -->
+      <!-- Spotclean walls & doors -->
       <div class="task-item">
         <input type="checkbox" id="upstairs_spotclean_walls" name="upstairs_spotclean_walls" />
         <label for="upstairs_spotclean_walls">Spotclean walls & doors</label>
@@ -267,7 +279,7 @@
           <textarea name="upstairs_spotclean_walls_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 13 -->
+      <!-- Deep Vacuum -->
       <div class="task-item">
         <input type="checkbox" id="upstairs_deep_vacuum" name="upstairs_deep_vacuum" />
         <label for="upstairs_deep_vacuum">
@@ -278,7 +290,7 @@
           <textarea name="upstairs_deep_vacuum_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 14 -->
+      <!-- Deep mopping -->
       <div class="task-item">
         <input type="checkbox" id="upstairs_deep_mop" name="upstairs_deep_mop" />
         <label for="upstairs_deep_mop">
@@ -291,11 +303,11 @@
       </div>
     </div>
 
-    <!-- GYM -->
+    <!-- 3) GYM -->
     <div class="task-section">
       <h2>Gym</h2>
       <h3>Each Visit</h3>
-      <!-- 15 -->
+      <!-- Restock Supplies -->
       <div class="task-item">
         <input type="checkbox" id="gym_restock_supplies" name="gym_restock_supplies" />
         <label for="gym_restock_supplies">
@@ -306,7 +318,7 @@
           <textarea name="gym_restock_supplies_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 16 -->
+      <!-- Clean Gym Equipment -->
       <div class="task-item">
         <input type="checkbox" id="gym_clean_equipment" name="gym_clean_equipment" />
         <label for="gym_clean_equipment">
@@ -317,7 +329,7 @@
           <textarea name="gym_clean_equipment_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 17 -->
+      <!-- Disinfect High-touch Areas -->
       <div class="task-item">
         <input type="checkbox" id="gym_disinfect_high_touch" name="gym_disinfect_high_touch" />
         <label for="gym_disinfect_high_touch">
@@ -328,7 +340,7 @@
           <textarea name="gym_disinfect_high_touch_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 18 -->
+      <!-- Wipe Mirrors -->
       <div class="task-item">
         <input type="checkbox" id="gym_wipe_mirrors" name="gym_wipe_mirrors" />
         <label for="gym_wipe_mirrors">Wipe Mirrors (remove smudges)</label>
@@ -337,7 +349,7 @@
           <textarea name="gym_wipe_mirrors_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 19 -->
+      <!-- Empty Trash Bins -->
       <div class="task-item">
         <input type="checkbox" id="gym_empty_bins" name="gym_empty_bins" />
         <label for="gym_empty_bins">Empty Trash Bins (replace liners if needed)</label>
@@ -346,7 +358,7 @@
           <textarea name="gym_empty_bins_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 20 -->
+      <!-- Mop Floors -->
       <div class="task-item">
         <input type="checkbox" id="gym_mop_floors" name="gym_mop_floors" />
         <label for="gym_mop_floors">Mop Floors (workout area and locker rooms)</label>
@@ -355,11 +367,11 @@
           <textarea name="gym_mop_floors_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 21 -->
+      <!-- Clean & Disinfect Changing Areas -->
       <div class="task-item">
         <input type="checkbox" id="gym_clean_changing" name="gym_clean_changing" />
         <label for="gym_clean_changing">
-          Clean & Disinfect Changing Areas: wipe lockers, benches, surfaces
+          Clean & Disinfect Changing Areas (wipe lockers, benches, surfaces)
         </label>
         <div class="task-actions">
           <input type="file" name="gym_clean_changing_photo" accept="image/*" />
@@ -368,12 +380,11 @@
       </div>
     </div>
 
-    <!-- BATHROOMS -->
+    <!-- 4) BATHROOMS -->
     <div class="task-section">
       <h2>Bathrooms</h2>
-
       <h3>Each Visit</h3>
-      <!-- 22 -->
+      <!-- Restock Supplies -->
       <div class="task-item">
         <input type="checkbox" id="bathrooms_restock" name="bathrooms_restock" />
         <label for="bathrooms_restock">
@@ -384,7 +395,7 @@
           <textarea name="bathrooms_restock_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 23 -->
+      <!-- Clean Toilets -->
       <div class="task-item">
         <input type="checkbox" id="bathrooms_clean_toilets" name="bathrooms_clean_toilets" />
         <label for="bathrooms_clean_toilets">
@@ -395,7 +406,7 @@
           <textarea name="bathrooms_clean_toilets_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 24 -->
+      <!-- Clean Sinks & Faucets -->
       <div class="task-item">
         <input type="checkbox" id="bathrooms_clean_sinks" name="bathrooms_clean_sinks" />
         <label for="bathrooms_clean_sinks">Clean Sinks & Faucets</label>
@@ -404,7 +415,7 @@
           <textarea name="bathrooms_clean_sinks_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 25 -->
+      <!-- Wipe Mirrors -->
       <div class="task-item">
         <input type="checkbox" id="bathrooms_wipe_mirrors" name="bathrooms_wipe_mirrors" />
         <label for="bathrooms_wipe_mirrors">Wipe Mirrors (remove smudges)</label>
@@ -413,7 +424,7 @@
           <textarea name="bathrooms_wipe_mirrors_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 26 -->
+      <!-- Disinfect door handles & light switches -->
       <div class="task-item">
         <input type="checkbox" id="bathrooms_disinfect_high_touch" name="bathrooms_disinfect_high_touch" />
         <label for="bathrooms_disinfect_high_touch">Disinfect door handles & light switches</label>
@@ -422,7 +433,7 @@
           <textarea name="bathrooms_disinfect_high_touch_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 27 -->
+      <!-- Empty Trash Bins -->
       <div class="task-item">
         <input type="checkbox" id="bathrooms_empty_bins" name="bathrooms_empty_bins" />
         <label for="bathrooms_empty_bins">Empty Trash Bins (replace liners if needed)</label>
@@ -431,7 +442,7 @@
           <textarea name="bathrooms_empty_bins_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 28 -->
+      <!-- Mop Floors -->
       <div class="task-item">
         <input type="checkbox" id="bathrooms_mop_floors" name="bathrooms_mop_floors" />
         <label for="bathrooms_mop_floors">Mop Floors</label>
@@ -442,7 +453,7 @@
       </div>
 
       <h3>Monthly</h3>
-      <!-- 29 -->
+      <!-- Spotclean walls & doors -->
       <div class="task-item">
         <input type="checkbox" id="bathrooms_spotclean" name="bathrooms_spotclean" />
         <label for="bathrooms_spotclean">Spotclean walls & doors</label>
@@ -453,12 +464,12 @@
       </div>
     </div>
 
-    <!-- KITCHENS -->
+    <!-- 5) KITCHENS -->
     <div class="task-section">
       <h2>Kitchens</h2>
 
       <h3>Each Visit</h3>
-      <!-- 30 -->
+      <!-- Sweep and mop with disinfectant -->
       <div class="task-item">
         <input type="checkbox" id="kitchen_sweep_mop" name="kitchen_sweep_mop" />
         <label for="kitchen_sweep_mop">Sweep and mop with disinfectant</label>
@@ -467,7 +478,7 @@
           <textarea name="kitchen_sweep_mop_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 31 -->
+      <!-- Disinfect High-risk areas -->
       <div class="task-item">
         <input type="checkbox" id="kitchen_disinfect_highrisk" name="kitchen_disinfect_highrisk" />
         <label for="kitchen_disinfect_highrisk">
@@ -478,7 +489,7 @@
           <textarea name="kitchen_disinfect_highrisk_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 32 -->
+      <!-- Disinfect kitchen appliances -->
       <div class="task-item">
         <input type="checkbox" id="kitchen_disinfect_appliances" name="kitchen_disinfect_appliances" />
         <label for="kitchen_disinfect_appliances">
@@ -489,7 +500,7 @@
           <textarea name="kitchen_disinfect_appliances_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 33 -->
+      <!-- Refill hand towel, hand wash, etc. -->
       <div class="task-item">
         <input type="checkbox" id="kitchen_refill_consumables" name="kitchen_refill_consumables" />
         <label for="kitchen_refill_consumables">
@@ -500,7 +511,7 @@
           <textarea name="kitchen_refill_consumables_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 34 -->
+      <!-- Clean all kitchen benches -->
       <div class="task-item">
         <input type="checkbox" id="kitchen_clean_benches" name="kitchen_clean_benches" />
         <label for="kitchen_clean_benches">
@@ -511,7 +522,7 @@
           <textarea name="kitchen_clean_benches_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 35 -->
+      <!-- Clean and wash up dishes -->
       <div class="task-item">
         <input type="checkbox" id="kitchen_15min_dishes" name="kitchen_15min_dishes" />
         <label for="kitchen_15min_dishes">Clean and wash up dishes (limited to 15 minutes)</label>
@@ -520,7 +531,7 @@
           <textarea name="kitchen_15min_dishes_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 36 -->
+      <!-- Clean inside & outside fridge / microwaves -->
       <div class="task-item">
         <input type="checkbox" id="kitchen_clean_fridge" name="kitchen_clean_fridge" />
         <label for="kitchen_clean_fridge">
@@ -531,7 +542,7 @@
           <textarea name="kitchen_clean_fridge_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 37 -->
+      <!-- Clean kitchen backsplash -->
       <div class="task-item">
         <input type="checkbox" id="kitchen_clean_backsplash" name="kitchen_clean_backsplash" />
         <label for="kitchen_clean_backsplash">Clean kitchen backsplash (remove food marks)</label>
@@ -540,7 +551,7 @@
           <textarea name="kitchen_clean_backsplash_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 38 -->
+      <!-- Mop area, vacuum area -->
       <div class="task-item">
         <input type="checkbox" id="kitchen_mop_area" name="kitchen_mop_area" />
         <label for="kitchen_mop_area">Mop area, vacuum area</label>
@@ -549,7 +560,7 @@
           <textarea name="kitchen_mop_area_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 39 -->
+      <!-- Clean and dust all tops, chairs, etc. -->
       <div class="task-item">
         <input type="checkbox" id="kitchen_clean_tops" name="kitchen_clean_tops" />
         <label for="kitchen_clean_tops">
@@ -560,7 +571,7 @@
           <textarea name="kitchen_clean_tops_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 40 -->
+      <!-- Clean / dust equipment on walls -->
       <div class="task-item">
         <input type="checkbox" id="kitchen_spot_clean_walls" name="kitchen_spot_clean_walls" />
         <label for="kitchen_spot_clean_walls">
@@ -571,7 +582,7 @@
           <textarea name="kitchen_spot_clean_walls_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 41 -->
+      <!-- Empty rubbish bins -->
       <div class="task-item">
         <input type="checkbox" id="kitchen_empty_bins" name="kitchen_empty_bins" />
         <label for="kitchen_empty_bins">Empty rubbish bins</label>
@@ -582,7 +593,7 @@
       </div>
 
       <h3>Monthly</h3>
-      <!-- 42 -->
+      <!-- Remove cobwebs -->
       <div class="task-item">
         <input type="checkbox" id="kitchen_remove_cobwebs" name="kitchen_remove_cobwebs" />
         <label for="kitchen_remove_cobwebs">Remove cobwebs</label>
@@ -591,7 +602,7 @@
           <textarea name="kitchen_remove_cobwebs_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 43 -->
+      <!-- Dust and clean inside drawers -->
       <div class="task-item">
         <input type="checkbox" id="kitchen_dust_clean_drawers" name="kitchen_dust_clean_drawers" />
         <label for="kitchen_dust_clean_drawers">Dust and clean inside drawers</label>
@@ -600,12 +611,10 @@
           <textarea name="kitchen_dust_clean_drawers_comment" class="task-comments" placeholder="Comments"></textarea>
         </div>
       </div>
-      <!-- 44 -->
+      <!-- Dust and clean inside cabinets -->
       <div class="task-item">
         <input type="checkbox" id="kitchen_dust_clean_cabinets" name="kitchen_dust_clean_cabinets" />
-        <label for="kitchen_dust_clean_cabinets">
-          Dust and clean inside cabinets
-        </label>
+        <label for="kitchen_dust_clean_cabinets">Dust and clean inside cabinets</label>
         <div class="task-actions">
           <input type="file" name="kitchen_dust_clean_cabinets_photo" accept="image/*" />
           <textarea name="kitchen_dust_clean_cabinets_comment" class="task-comments" placeholder="Comments"></textarea>
@@ -614,7 +623,6 @@
     </div>
 
     <div style="text-align:center; margin:30px 0;">
-      <!-- Single button to handle the entire form submission -->
       <button type="submit" class="submit-button">Submit Checklist</button>
     </div>
   </form>
